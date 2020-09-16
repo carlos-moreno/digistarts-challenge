@@ -5,6 +5,13 @@ from fastapi.responses import JSONResponse
 
 router = APIRouter()
 
+json_response = JSONResponse(
+    status_code=status.HTTP_400_BAD_REQUEST,
+    content={
+        "message": "The request must contain two valid binary numbers between 0-255"
+    },
+)
+
 
 class Item(BaseModel):
     number_one: str
@@ -28,17 +35,17 @@ def validate_number(item: Item):
         not 0 <= int(item.number_one, 2) <= 255
         or not 0 <= int(item.number_two, 2) <= 255
     ):
-        raise HTTPException(
-            status_code=400,
-            detail="The request must contain two valid binary numbers between 0-255",
-        )
+        raise ValueError
 
 
 def format_return(number: str):
     """Returns the number formatted in binary
     :param number: number to be formatted
     """
-    return {"result": number[2:].zfill(8)}
+    result = (
+        "-" + number[3:].zfill(8) if number.startswith("-") else number[2:].zfill(8)
+    )
+    return {"result": result}
 
 
 @router.post("/sum/", tags=["calculator"])
@@ -47,13 +54,8 @@ def binary_sum(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["sum"](item))
-    except HTTPException:
-        return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            content={
-                "message": "The request must contain two valid binary numbers between 0-255"
-            },
-        )
+    except (ValueError, HTTPException):
+        return json_response
 
 
 @router.post("/sub/", tags=["calculator"])
@@ -62,13 +64,8 @@ def binary_sub(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["sub"](item))
-    except HTTPException:
-        return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            content={
-                "message": "The request must contain two valid binary numbers between 0-255"
-            },
-        )
+    except (ValueError, HTTPException):
+        return json_response
 
 
 @router.post("/mult/", tags=["calculator"])
@@ -77,13 +74,8 @@ def binary_mult(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["mult"](item))
-    except HTTPException:
-        return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            content={
-                "message": "The request must contain two valid binary numbers between 0-255"
-            },
-        )
+    except (ValueError, HTTPException):
+        return json_response
 
 
 @router.post("/div/", tags=["calculator"])
@@ -92,13 +84,8 @@ def binary_div(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["div"](item))
-    except HTTPException:
-        return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            content={
-                "message": "The request must contain two valid binary numbers between 0-255"
-            },
-        )
+    except (ValueError, HTTPException):
+        return json_response
 
 
 @router.post("/mod/", tags=["calculator"])
@@ -107,10 +94,5 @@ def binary_mod(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["mod"](item))
-    except HTTPException:
-        return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            content={
-                "message": "The request must contain two valid binary numbers between 0-255"
-            },
-        )
+    except (ValueError, HTTPException):
+        return json_response
