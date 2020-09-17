@@ -1,20 +1,20 @@
 language: python
 python:
-- '3.8'
+  - '3.8'
 install:
-- pip install pipenv
-- pipenv sync --dev
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-  > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- "./cc-test-reporter before-build"
+  - pip install pipenv
+  - pipenv sync --dev
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - "./cc-test-reporter before-build"
 script:
-- flake8
-- pytest
-- coverage run -m pytest
+  - flake8
+  - pytest
+  - coverage run -m pytest
 after_script:
-- coverage xml
-- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - coverage xml
+  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 env:
   global:
-    secure: Kx1o8CQ9Neu6vHpLI85O7CncHXEG5rkfT5Lm8nsirPEvjB+soxrsc9+YAPws3hxA16sEQhphATdNPlrCaa2dOnKA2EQ7bBkxqSMj2tNYx0TNV1AIk7HcZI9aRqdpjTqYD7UgfeCRUkNEzeGtyY4RzQnDQci75owkGClp6HzWCcnfNIjxBaCAo9TAuK3uvVrLyBMb9UG8eMBKQG0ugaqfvh+DY5ECwYiC1HyzZiwLkbE/kgkRDBv2nZmOhCk0EdKFFOiA9R+st9k8V8kQ6+v/EyybR/BSKyUm8qgWOrbcZosTSxFr7qxJ0U9Ckq5X5RZP9SSZ3D3tRN/W2s8S8ItdBIEW2xc08heqt6cEYZVEJyDrf5TJkBasMxpXlRONU0YdN6kmwqYhu3OvxtcYjT6bhAVVqGElR02+PbFPCQ3pyvjLK0Hx6gCga2PTLf2hSj4sg3my1eUfL3PtE13GDfTbYQRp8JTK/kChdeinkHsOajxU38kLX+uRfznn6WhaWUGgjZg7sbAgi+jN/D2KBeHntgjfxJqAcKmq7QrcANsxB80Le5trAJclefVMCY8e4AHns4pIRbOdoCOcABpj9qlWe/FLE+yB9VSsJ1QPVJEEguKmT5giHQrekSJVHdbZ0wBIsPR+x7MyZdRBd9q0W1thyj42Xj7Sw6u6KboyxPQ4BI8=
+    secure: ml+aiXbO1Wpiis4miyT8Tdl66rfeEp4VEMA2Fge4jsDrFui4p/RDBwGpAWN2/Fzo76FA6o5HsfNvuL0q3vA5rfca9D68aYzBM/VOMjDm+KS7qWzNeyFfx3o1Za2Bp5fKAAlkEHKJknbNCXQXJ+XdYiecxQiHvzvEz/dfmiZzSIxITh+D1LjfPGPMn+nObaBzNkAgcr0N7vR1m9MBomWKDgbO6YIFQVu3YR78mvG558LWEz4meuxIlKNYhESMhnRVoJOAGETuWDgXIFpuniFyU0XRD/bDs9/9aTdR0QVKN+RJ4bOWwEQqyBcCt1K1HWvZDMzgB73U734/h6pcd3SFNaK/H2avmv41ODCFdEc3dkolOugVKQ1GB3HiIQCSiatVVXbJxXC5rXArvQazPU/CGbNF4iNFYYzMRdUY56b1nNnsedzRyWTfAt9QK8H+6O2SqRqgLfAKokpoDV0HosYKk1/jAdg//6nB1hhfIphgYrQAS8qokg+PJWyCFdsTsE56oevmlNhJbXbKT+b793dDnS1YqNP+CqyZVdL/Y9NY91AyUAKplqcqy028bfdAqJ5wbXQ1836fMmBMcnIG1eKNHW5XeI60VdaYfu2XJiMANLQf0YRRCB7TdV19IM759eGmMl2eQujRNh31WaxRPCuXDe27a6ic1eTR7B07u3pfHYY=
