@@ -4,4 +4,4 @@ from .routers import calculator
 
 app = FastAPI()
 
-app.include_router(calculator.router)
+app.include_router(calculator.router, prefix='/v1/calculator')
