@@ -1,5 +1,7 @@
 # Digistarts - Technical Python Developer Test
 
+[![Build Status](https://travis-ci.org/carlos-moreno/digistarts-challenge.svg?branch=master)](https://travis-ci.org/carlos-moreno/digistarts-challenge)
+
 API developed for Python developer testing at [Digistarts](https://www.digistarts.com/).
 
 An API was developed to enable mathematical operations between two binary numbers.
