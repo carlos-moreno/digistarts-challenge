@@ -1,20 +1,11 @@
-env:
-  global:
-  - secure: AuVCxJuIDsbtQgdiNgKwA7vo4136Jdwui+8b6bFAkR1ctwPrUaMkV8fBIK/eGCbmOqKFfOGQTaMoWf2xE8321H4CfyQfSZrJEvZdTYIVIMkRLOXF4adphXVnoG8w83KOfzODPLikR3fL4nIUyKZJMsa831Ayq3Lg/JGd24cgUnLoLGs5B7T8d2fnqRRR0Wd1oUqcQX+4GTOIbob3skF1InSflxpKmE+ZIHsEg/6REy6biii7XVMQBvISFxvoNcovfT+vQ4Bp7l8tbHppOgYlfe5RdkccMUrh04Lg5An3jwRv2JAsGpB3Edyvecy/qMSJde918Q7YvOoTD6HDtjC4XBdeoZMHcZjCPhBMaqkvpElawA8y0iL9Bq0/dqVI8/QIm+OGiW6NPHy4jgccUSfeoFO5VEONuwgB8ouav5F3w4msSVY4/1N1/kWii1+kF7Qyn3PCLa05eol4s/z/CVY88HH+2sA2TZnMQjuI1fX4vJFYO+9SejOc3b3mU6m51GfdYLXEYhnHGyaxPXV0K6juftZVOl0qcKbOS4TkMP1B5PPGQ6ZPuSu4YRl3BVooK38nJTE4984W79IiF2dvY5j1ZNTpVUraZ2BHrdMEv0WDfke1cTB4uII9fKHKTCk+31RkSYWRnS+mjhYzUK8++243X/hiyvCvIXssbYw4rtwCrK4=
 language: python
 python:
-- '3.8'
+  - '3.8'
 install:
-- pip install pipenv
-- pipenv sync --dev
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-  > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- "./cc-test-reporter before-build"
+  - pip install -q pipenv codecov
+  - pipenv sync --dev
 script:
-- flake8
-- pytest
-- coverage run -m pytest
+  - flake8
+  - pytest --cov=app
 after_script:
-- coverage xml
-- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+  - codecov
