@@ -1,7 +1,8 @@
+import pytest
 from fastapi.testclient import TestClient
 
 from app.main import app
-from app.routers.calculator import format_return
+from app.routers.calculator import format_return, validate_number, Item
 
 client = TestClient(app)
 
@@ -126,8 +127,59 @@ def test_mod_100_by_5():
 
 
 def test_format_return():
-    assert format_return('0b10') == {'result': '00000010'}
+    assert format_return("0b10") == {"result": "00000010"}
 
 
 def test_format_return_with_number_negative():
-    assert format_return('-0b1') == {'result': '-00000001'}
+    assert format_return("-0b1") == {"result": "-00000001"}
+
+
+def test_raise_value_error():
+    item = Item(number_one="100000000", number_two="00000010")
+    with pytest.raises(ValueError):
+        validate_number(item)
+
+
+def test_error_in_sum():
+    """Must return an error in sum"""
+    payload = {"number_one": "0110000cd", "number_two": "00000001"}
+    response = client.post("/v1/calculator/sum/", json=payload)
+    assert response.json() == {
+        "message": "The request must contain two valid binary numbers between 0-255"
+    }
+
+
+def test_error_in_sub():
+    """Must return an error in sub"""
+    payload = {"number_one": "0000ed10", "number_two": "00000010"}
+    response = client.post("/v1/calculator/sub/", json=payload)
+    assert response.json() == {
+        "message": "The request must contain two valid binary numbers between 0-255"
+    }
+
+
+def test_error_in_mult():
+    """Must return an error in mult"""
+    payload = {"number_one": "1100000010", "number_two": "00010010"}
+    response = client.post("/v1/calculator/mult/", json=payload)
+    assert response.json() == {
+        "message": "The request must contain two valid binary numbers between 0-255"
+    }
+
+
+def test_error_in_div():
+    """Must return an error in div"""
+    payload = {"number_one": "1100001010", "number_two": "000b0010"}
+    response = client.post("/v1/calculator/div/", json=payload)
+    assert response.json() == {
+        "message": "The request must contain two valid binary numbers between 0-255"
+    }
+
+
+def test_error_in_mod():
+    """Must return an error in mod"""
+    payload = {"number_one": "0110010cd", "number_two": "00000101"}
+    response = client.post("/v1/calculator/mod/", json=payload)
+    assert response.json() == {
+        "message": "The request must contain two valid binary numbers between 0-255"
+    }

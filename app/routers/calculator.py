@@ -1,7 +1,6 @@
-from fastapi import APIRouter, status, HTTPException
-from pydantic import BaseModel
+from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
-
+from pydantic import BaseModel
 
 router = APIRouter()
 
@@ -54,7 +53,7 @@ def binary_sum(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["sum"](item))
-    except (ValueError, HTTPException):
+    except ValueError:
         return json_response
 
 
@@ -64,7 +63,7 @@ def binary_sub(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["sub"](item))
-    except (ValueError, HTTPException):
+    except ValueError:
         return json_response
 
 
@@ -74,7 +73,7 @@ def binary_mult(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["mult"](item))
-    except (ValueError, HTTPException):
+    except ValueError:
         return json_response
 
 
@@ -84,7 +83,7 @@ def binary_div(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["div"](item))
-    except (ValueError, HTTPException):
+    except ValueError:
         return json_response
 
 
@@ -94,5 +93,5 @@ def binary_mod(item: Item):
     try:
         validate_number(item)
         return format_return(dict_of_operations["mod"](item))
-    except (ValueError, HTTPException):
+    except ValueError:
         return json_response
