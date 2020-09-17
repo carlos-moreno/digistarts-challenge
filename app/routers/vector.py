@@ -19,7 +19,7 @@ class Vector(BaseModel):
 
 def validate_list(lst: list):
     """Checks whether the list is empty"""
-    if lst is None:
+    if not lst or (lst[0] != len(lst[1:])):
         raise ValueError
 
 
