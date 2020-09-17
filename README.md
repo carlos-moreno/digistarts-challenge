@@ -31,7 +31,7 @@ pytest -v
 uvicorn app.main:app --reload
 ```
 
-### API endPoints
+### API endpoints
 ```
 |-----------------------------------------------------------------------------------------|
 | Objective                                           | Endpoints                | Verbs  |
