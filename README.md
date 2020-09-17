@@ -14,7 +14,7 @@ git clone https://github.com/carlos-moreno/digistarts-challenge.git
 ```
 cd digistarts-challenge
 ```
-- Install the dependencies
+- Install the dependencies *
 ```
 pipenv sync --dev
 ```
@@ -32,7 +32,7 @@ uvicorn app.main:app --reload
 ```
 
 
-### EndPoints and Verbs API
+### API endPoints
 ```
 |-----------------------------------------------------------------------------------------|
 | Objective                                           | Endpoints                | Verbs  |
@@ -44,4 +44,6 @@ uvicorn app.main:app --reload
 | Resting between two binary numbers                  | /v1/calculator/mod/      | POST   |
 |-----------------------------------------------------------------------------------------|
 ```
+
+\* The case in question considers that the virtual environment was created within the project directory, if this is not the case, the activation path of the virtual environment should be changed according to the correct creation location.
 
