@@ -1,6 +1,7 @@
 # Digistarts - Technical Python Developer Test
 
 [![Build Status](https://travis-ci.org/carlos-moreno/digistarts-challenge.svg?branch=master)](https://travis-ci.org/carlos-moreno/digistarts-challenge)
+[![Maintainability](https://api.codeclimate.com/v1/badges/eec3a1a3074473d330cc/maintainability)](https://codeclimate.com/github/carlos-moreno/digistarts-challenge/maintainability)
 [![codecov](https://codecov.io/gh/carlos-moreno/digistarts-challenge/branch/master/graph/badge.svg)](https://codecov.io/gh/carlos-moreno/digistarts-challenge)
 
 
