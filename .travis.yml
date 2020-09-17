@@ -1,10 +1,20 @@
 language: python
 python:
-  - "3.8"
+- '3.8'
 install:
-  - pip install pipenv
-  - pipenv sync --dev
-# command to run tests
+- pip install pipenv
+- pipenv sync --dev
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
-  - flake8
-  - pytest
+- flake8
+- pytest
+- coverage run manage.py test
+after_script:
+- coverage xml
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+env:
+  global:
+    secure: r3rtWn1X+rknqqdVZzU5kOTnN/TvutCjMeP7GZVQ+EPxjti82mrt1/KiSM9W0A5kgp9zRk2vcH3X9UPxp94UcsGHq7N5ZZzZ4yO/gnz6HlKZ1W+sDhBrnsYo0e04jsU33Lt8NUBlEO3RgCiywI7OThsAlUAu6gFTVEF9aTslOiEWFEEnqioicrx19flbT9rcfe3UITPRgOl+QgPea6AvcvJTdBFYcv/9G08NdofM0T93djycO3Z5j3SJrPEyAGSFEwWS6a20etPULjK7+aDjykNRcmZjshRX2loNdc/u3bsAI8U6z67UiUEanWF54wgTsUW69/nflbbMTfe75FWvlFdoSGidWJFdninulSNYxolrWnSJ+bTKr6TbikwGklpiiHN4MT7Eo07S5zI8iG2sI0X6ZhVOODrSVifWFvseOtdhxO9FqPnTKo0v/BLRQ9Yx8fxOm6dn/yyOBJjb5Gmj01RsG6oyFlciEpPymshlwRwy2wPGuGZ7snBcEFqc9Yf1fDZ1Cb3dO+ootl2V3WbFcCGO4g9ANLKWqyT96fD8R+9wSxCDm4rDrbwrsyIlGsJp+tK1eMpyRfNTFRVgHCJmw/mHdbEyoe8jYRF6PDpa/bfN0emRsYQPkRAQCl8LQJLjMSqOqr4qLgMssYKRSj6grj1eo7iqS1vT5lyJI8PtAxQ=
