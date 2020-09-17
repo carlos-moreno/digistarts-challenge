@@ -1,6 +1,7 @@
 from fastapi.testclient import TestClient
 
 from app.main import app
+from app.routers.calculator import format_return
 
 client = TestClient(app)
 
@@ -122,3 +123,11 @@ def test_mod_100_by_5():
     payload = {"number_one": "01100100", "number_two": "00000101"}
     response = client.post("/v1/calculator/mod/", json=payload)
     assert response.json() == {"result": "00000000"}
+
+
+def test_format_return():
+    assert format_return('0b10') == {'result': '00000010'}
+
+
+def test_format_return_with_number_negative():
+    assert format_return('-0b1') == {'result': '-00000001'}
