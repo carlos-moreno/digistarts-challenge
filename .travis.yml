@@ -1,20 +1,20 @@
 env:
   global:
-    secure: ml+aiXbO1Wpiis4miyT8Tdl66rfeEp4VEMA2Fge4jsDrFui4p/RDBwGpAWN2/Fzo76FA6o5HsfNvuL0q3vA5rfca9D68aYzBM/VOMjDm+KS7qWzNeyFfx3o1Za2Bp5fKAAlkEHKJknbNCXQXJ+XdYiecxQiHvzvEz/dfmiZzSIxITh+D1LjfPGPMn+nObaBzNkAgcr0N7vR1m9MBomWKDgbO6YIFQVu3YR78mvG558LWEz4meuxIlKNYhESMhnRVoJOAGETuWDgXIFpuniFyU0XRD/bDs9/9aTdR0QVKN+RJ4bOWwEQqyBcCt1K1HWvZDMzgB73U734/h6pcd3SFNaK/H2avmv41ODCFdEc3dkolOugVKQ1GB3HiIQCSiatVVXbJxXC5rXArvQazPU/CGbNF4iNFYYzMRdUY56b1nNnsedzRyWTfAt9QK8H+6O2SqRqgLfAKokpoDV0HosYKk1/jAdg//6nB1hhfIphgYrQAS8qokg+PJWyCFdsTsE56oevmlNhJbXbKT+b793dDnS1YqNP+CqyZVdL/Y9NY91AyUAKplqcqy028bfdAqJ5wbXQ1836fMmBMcnIG1eKNHW5XeI60VdaYfu2XJiMANLQf0YRRCB7TdV19IM759eGmMl2eQujRNh31WaxRPCuXDe27a6ic1eTR7B07u3pfHYY=
+  - secure: axBNrZJH93TKf2+Kod/e+PH94v9xAmsXAKVXrle9KzcDFag/oAGNC4hKDIrPY8K+53XlEU4BPF+4M5uGn1+zIzHr4y4YN+v8Gn9CzaUJZpmFkgmvvkuDV0b8ynkwrDNjnco63TXoKB2ARK6AB/iAP77kzsVEH/bC6t9WgGYrrJXZVwqbXrGhtUlvXqiPdOzqOvKb5OXPKxryeskImBVwvp1NQovt5Bgb852HlQIBBICRXDCJBveEI2VRUdDvf/Vd6ohdRSux0mOaT5FtMWyco+q1SxQEcf4JaqTEm1JzG+zaeNVd9u+4n87A/l5GCRiVRDlh++rZREsMcPdULdMTtry4aewZOajQ27QpHMgUJp1mCQKE9ZeiFpD4Cc8Iqh5Rp37qWJbnqaZpA+A/odWed5mbuwVyFPiB2ScJBslk7kXOZ1ySvSr+KBLoKPg40xNAl4UaM/xipLRNV2gMIY5juNmrI+NqxIGVW8KZtMRVSyDhq37YJe2TqTas7QO8vpIaiN3UdbW/mitW33mexeIBS/KJH8Rd6OHYjGbddOZ17pNWpoVDIHFw7zcagH/BDifARP60MGItBDWZWjeAJ2YD2Dn21TOLLsk9Kn2DGaUchNnZKZMW9IEHGLuF99DmQmR7Z5BiadrDye4bl7ZRH5S4/T4GJQkEPSnSVN+MKxn0Fl8=
 language: python
 python:
-  - '3.8'
+- '3.8'
 install:
-  - pip install pipenv
-  - pipenv sync --dev
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-    > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - "./cc-test-reporter before-build"
+- pip install pipenv
+- pipenv sync --dev
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
-  - flake8
-  - pytest
-  - coverage run -m pytest
+- flake8
+- pytest
+- coverage run -m pytest
 after_script:
-  - coverage xml
-  - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
+- coverage xml
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
