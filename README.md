@@ -1,7 +1,6 @@
 # Digistarts - Technical Python Developer Test
 
 [![Build Status](https://travis-ci.org/carlos-moreno/digistarts-challenge.svg?branch=master)](https://travis-ci.org/carlos-moreno/digistarts-challenge)
-[![Maintainability](https://api.codeclimate.com/v1/badges/5b020b89df59ba8e74fb/maintainability)](https://codeclimate.com/github/carlos-moreno/digistarts-challenge/maintainability)
 
 
 API developed for Python developer testing at [Digistarts](https://www.digistarts.com/).
