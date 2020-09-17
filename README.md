@@ -1,10 +1,12 @@
 # Digistarts - Technical Python Developer Test
 
 [![Build Status](https://travis-ci.org/carlos-moreno/digistarts-challenge.svg?branch=master)](https://travis-ci.org/carlos-moreno/digistarts-challenge)
+[![Maintainability](https://api.codeclimate.com/v1/badges/5b020b89df59ba8e74fb/maintainability)](https://codeclimate.com/github/carlos-moreno/digistarts-challenge/maintainability)
+
 
 API developed for Python developer testing at [Digistarts](https://www.digistarts.com/).
 
-An API was developed to enable mathematical operations between two binary numbers.
+An API was developed to allow mathematical operations (+, -, *, / and %) between two binary numbers and also to generate a set with unique elements ordered in ascending order.
 
 ## How to execute the project?
 
@@ -43,6 +45,7 @@ uvicorn app.main:app --reload
 | Multiply between two binary numbers                 | /v1/calculator/mult/     | POST   |
 | Divide between two binary numbers                   | /v1/calculator/div/      | POST   |
 | Resting between two binary numbers                  | /v1/calculator/mod/      | POST   |
+| Return a set of unique elements                     | /v1/vector/set/          | POST   |
 |-----------------------------------------------------------------------------------------|
 ```
 
