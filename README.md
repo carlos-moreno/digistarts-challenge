@@ -50,6 +50,10 @@ uvicorn app.main:app --reload
 |-----------------------------------------------------------------------------------------|
 ```
 
+### Examples of requests
+
+![Page of docs](https://carlos-moreno.github.com/imgs/page-docs.png)
+
 ### Tip:
 
 If you do not want to configure the application locally, you can execute it using a docker image
