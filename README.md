@@ -41,6 +41,7 @@ uvicorn app.main:app --reload
 |-----------------------------------------------------------------------------------------|
 | Objective                                           | Endpoints                | Verbs  |
 |-----------------------------------------------------------------------------------------|
+| API documentation                                   | /docs/                   | GET    |
 | Sum between two binary numbers                      | /v1/calculator/sum/      | POST   |
 | Subtract between two binary numbers                 | /v1/calculator/sub/      | POST   |
 | Multiply between two binary numbers                 | /v1/calculator/mult/     | POST   |
