@@ -52,7 +52,13 @@ uvicorn app.main:app --reload
 
 ### Examples of requests
 
-![Page of docs](https://carlos-moreno.github.com/imgs/page-docs.png)
+![Page of docs](imgs/page-docs.png)
+
+![Sum request](imgs/sum-request.png)
+
+![Mult request](imgs/mult-request.png)
+
+![Set request](imgs/set-request.png)
 
 ### Tip:
 
