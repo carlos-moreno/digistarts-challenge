@@ -9,6 +9,16 @@ API developed for Python developer testing at [Digistarts](https://www.digistart
 
 An API was developed to allow mathematical operations (+, -, *, / and %) between two binary numbers and also to generate a set with unique elements ordered in ascending order.
 
+## Tools used in the project
+
+* [Python](https://www.python.org/)
+* [Pipenv](https://pipenv.pypa.io/en/latest/)
+* [FastAPI](https://fastapi.tiangolo.com/)
+* [Travis-CI](https://travis-ci.org/)
+* [Codecov](https://codecov.io/)
+* [Code Climate](https://codeclimate.com/)
+* [Heroku](https://www.heroku.com/)
+
 ## How to execute the project?
 
 - Clone the repository
