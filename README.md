@@ -50,5 +50,21 @@ uvicorn app.main:app --reload
 |-----------------------------------------------------------------------------------------|
 ```
 
+### Tip:
+
+If you do not want to configure the application locally, you can execute it using a docker image
+ created for the project according to the steps below.
+ 
+* Run the command below to download the docker image
+```
+docker pull carlosmoreno/digistarts-challenge
+```
+* Run the command below to start the project
+```
+docker run -d --name challenge -p 8000:80 carlosmoreno/digistarts-challenge
+```
+
+Now just access the API at http://127.0.0.1:8000
+
 \* The case in question considers that the virtual environment was created within the project directory, if this is not the case, the activation path of the virtual environment should be changed according to the correct creation location.
 
