@@ -13,8 +13,8 @@ json_response = JSONResponse(
 
 
 class Item(BaseModel):
-    number_one: str
-    number_two: str
+    number_one: str = None
+    number_two: str = None
 
 
 dict_of_operations = {
@@ -26,12 +26,18 @@ dict_of_operations = {
 }
 
 
+def is_none(item: Item):
+    """Checks if any of the fields are null"""
+    return item.number_one is None or item.number_two is None
+
+
 def validate_number(item: Item):
     """Validates the numbers for the type and range allowed
     :param item: Item type object
     """
     if (
-        not 0 <= int(item.number_one, 2) <= 255
+        is_none(item)
+        or not 0 <= int(item.number_one, 2) <= 255
         or not 0 <= int(item.number_two, 2) <= 255
     ):
         raise ValueError
