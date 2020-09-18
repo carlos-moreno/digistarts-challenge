@@ -41,7 +41,8 @@ def test_validate_numbers_k_less_1000():
 
 
 def test_validate_list():
-    """Should return an error when the first value of the first element is different from the number of items remaining in the list"""
+    """Should return an error when the first value of the first element is different from the
+    number of items remaining in the list"""
     payload = {"numbers": [6, 2, 0, -125, 50, 1000, -12, 3, 985]}
     response = client.post("/v1/vector/set/", json=payload)
     assert response.json() == {
