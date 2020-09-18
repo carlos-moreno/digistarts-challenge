@@ -40,7 +40,7 @@ def validate_numbers_k(numbers: list):
             raise ValueError
 
 
-@router.post("/set/", tags=["vector"])
+@router.post("/set/", tags=["Vector"])
 def make_set(vector: Vector):
     """Returns a set of numbers"""
     try:

@@ -47,7 +47,7 @@ def format_return(number: str):
     return {"result": result}
 
 
-@router.post("/sum/", tags=["calculator"])
+@router.post("/sum/", tags=["Calculator"])
 def binary_sum(item: Item):
     """Returns the sum of two binary numbers"""
     try:
@@ -57,7 +57,7 @@ def binary_sum(item: Item):
         return json_response
 
 
-@router.post("/sub/", tags=["calculator"])
+@router.post("/sub/", tags=["Calculator"])
 def binary_sub(item: Item):
     """Returns the subtraction of two binary numbers"""
     try:
@@ -67,7 +67,7 @@ def binary_sub(item: Item):
         return json_response
 
 
-@router.post("/mult/", tags=["calculator"])
+@router.post("/mult/", tags=["Calculator"])
 def binary_mult(item: Item):
     """Returns the multiplication of two binary numbers"""
     try:
@@ -77,7 +77,7 @@ def binary_mult(item: Item):
         return json_response
 
 
-@router.post("/div/", tags=["calculator"])
+@router.post("/div/", tags=["Calculator"])
 def binary_div(item: Item):
     """Returns the division of two binary numbers"""
     try:
@@ -87,7 +87,7 @@ def binary_div(item: Item):
         return json_response
 
 
-@router.post("/mod/", tags=["calculator"])
+@router.post("/mod/", tags=["Calculator"])
 def binary_mod(item: Item):
     """Returns the remainder of the division of two binary numbers"""
     try:
