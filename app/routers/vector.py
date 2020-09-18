@@ -36,7 +36,7 @@ def validate_numbers_k(numbers: list):
     :param numbers: list of numbers
     """
     for n in numbers:
-        if not -1000 <= n <= 1000:
+        if not isinstance(n, int) or not -1000 <= n <= 1000:
             raise ValueError
 
 
