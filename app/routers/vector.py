@@ -1,14 +1,14 @@
-from fastapi import APIRouter, status, HTTPException
-from pydantic import BaseModel
+from fastapi import APIRouter, status
 from fastapi.responses import JSONResponse
-
+from pydantic import BaseModel
 
 router = APIRouter()
 
 json_response = JSONResponse(
     status_code=status.HTTP_400_BAD_REQUEST,
     content={
-        "message": "The request must contain two valid binary numbers between 0-255"
+        "message": "The list must obey the following rule: first element N (1 <= N <= 1000) and "
+        "N integers K (-1000 <= K <= 1000)"
     },
 )
 
@@ -48,5 +48,5 @@ def make_set(vector: Vector):
         validate_number_n(vector.numbers[0])
         validate_numbers_k(vector.numbers[1:])
         return {"result": sorted(set(vector.numbers[1:]))}
-    except (ValueError, HTTPException):
+    except ValueError:
         return json_response

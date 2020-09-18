@@ -18,7 +18,8 @@ def test_validate_number_n():
     payload = {"numbers": [1001, 2, 0, -125, 50, 1]}
     response = client.post("/v1/vector/set/", json=payload)
     assert response.json() == {
-        "message": "The request must contain two valid binary numbers between 0-255"
+        "message": "The list must obey the following rule: first element N (1 <= N <= 1000) and "
+        "N integers K (-1000 <= K <= 1000)"
     }
 
 
@@ -27,7 +28,8 @@ def test_validate_numbers_k_greater_1000():
     payload = {"numbers": [6, 2, 0, -125, 50, 10000, -12]}
     response = client.post("/v1/vector/set/", json=payload)
     assert response.json() == {
-        "message": "The request must contain two valid binary numbers between 0-255"
+        "message": "The list must obey the following rule: first element N (1 <= N <= 1000) and "
+        "N integers K (-1000 <= K <= 1000)"
     }
 
 
@@ -36,7 +38,8 @@ def test_validate_numbers_k_less_1000():
     payload = {"numbers": [5, 3, -125, -1001, 90, -12]}
     response = client.post("/v1/vector/set/", json=payload)
     assert response.json() == {
-        "message": "The request must contain two valid binary numbers between 0-255"
+        "message": "The list must obey the following rule: first element N (1 <= N <= 1000) and "
+        "N integers K (-1000 <= K <= 1000)"
     }
 
 
@@ -46,7 +49,8 @@ def test_validate_list():
     payload = {"numbers": [6, 2, 0, -125, 50, 1000, -12, 3, 985]}
     response = client.post("/v1/vector/set/", json=payload)
     assert response.json() == {
-        "message": "The request must contain two valid binary numbers between 0-255"
+        "message": "The list must obey the following rule: first element N (1 <= N <= 1000) and "
+        "N integers K (-1000 <= K <= 1000)"
     }
 
 
@@ -55,7 +59,8 @@ def test_validate_list_empty():
     payload = {"numbers": []}
     response = client.post("/v1/vector/set/", json=payload)
     assert response.json() == {
-        "message": "The request must contain two valid binary numbers between 0-255"
+        "message": "The list must obey the following rule: first element N (1 <= N <= 1000) and "
+        "N integers K (-1000 <= K <= 1000)"
     }
 
 
