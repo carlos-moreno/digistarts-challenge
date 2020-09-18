@@ -14,7 +14,7 @@ json_response = JSONResponse(
 
 
 class Vector(BaseModel):
-    numbers: list
+    numbers: list = []
 
 
 def validate_list(lst: list):
